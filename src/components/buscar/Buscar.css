@@ -1,0 +1,10 @@
+input::placeholder{
+    padding: 10px;
+    color:black;
+}
+
+input {
+    border-radius: 25px;
+    border: none;
+}
+

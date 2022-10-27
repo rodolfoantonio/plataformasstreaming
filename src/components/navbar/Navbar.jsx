@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+import Buscar from "../buscar/Buscar";
 
 const Navbar = () => {
   return (
@@ -30,9 +31,9 @@ const Navbar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              <input type="text" name="" placeholder="Buscar" id="" />
-            </a>
+            
+             <Buscar/> 
+            
           </li>
         </ul>
       </div>
