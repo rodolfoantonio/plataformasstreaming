@@ -23,7 +23,7 @@ export const fetchBySearch = createAsyncThunk("fetch/movies", async (terminoBusq
         "https://api.themoviedb.org/3/search/movie?api_key=acb99b6d746b2d21873b6b4176755c4c&query="+terminoBusqueda+"&page=1"
     )
 
-    console.log(resp.data.results);
+    //console.log(resp.data.results);
     return resp.data.results;
 })
 

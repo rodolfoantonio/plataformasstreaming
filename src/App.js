@@ -1,14 +1,25 @@
-import logo from './assets/logo.svg';
-import './App.css';
+import logo from "./assets/logo.svg";
+import "./App.css";
 
-import Navbar from './components/navbar/Navbar';
+import Navbar from "./components/navbar/Navbar";
+import { useSelector } from "react-redux";
+import Card from "./components/card/CardPrueba";
 
 function App() {
+  const movies = useSelector((state) => state.movies.value);
+
   return (
     <div className="App">
-      <Navbar/>
+        <Navbar />
+      <div className="row">
+        {movies.map((movie) => (
+          //console.log(movie.original_title);
+          <Card movie={movie} />
+        ))}
+      </div>
       <header className="App-header">
       </header>
+
     </div>
   );
 }
