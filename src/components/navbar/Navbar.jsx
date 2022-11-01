@@ -3,7 +3,6 @@ import "./Navbar.css";
 import Buscar from "../buscar/Buscar";
 import Userlogout from "../userlogout/Userlogout";
 
-
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
