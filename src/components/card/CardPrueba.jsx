@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ movie }) => {
+const CardPrueba = ({ movie }) => {
   return (
     <div className="col-sm-4" key={movie.id + "_id"}>
       <div className="card text-white bg-dark m-1">
@@ -13,4 +13,4 @@ const Card = ({ movie }) => {
   );
 };
 
-export default Card;
+export default CardPrueba;

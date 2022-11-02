@@ -3,7 +3,7 @@ import "./App.css";
 
 import Navbar from "./components/navbar/Navbar";
 import { useSelector } from "react-redux";
-import Card from "./components/card/CardPrueba";
+import CardPrueba from "./components/card/CardPrueba";
 
 function App() {
   const movies = useSelector((state) => state.movies.value);
@@ -14,12 +14,11 @@ function App() {
       <div className="row">
         {movies.map((movie) => (
           //console.log(movie.original_title);
-          <Card movie={movie} />
+          <CardPrueba movie={movie} />
         ))}
       </div>
       <header className="App-header">
       </header>
-
     </div>
   );
 }
