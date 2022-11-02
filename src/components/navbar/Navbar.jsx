@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import Buscar from "../buscar/Buscar";
 import Userlogout from "../userlogout/Userlogout";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -22,22 +23,21 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="#">
+              <Link to="/catalogo" className="nav-link">
                 Catálogo
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to="/mispeliculas" className="nav-link">
                 Mis películas
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <Buscar />
             </li>
           </ul>
 
-          <Userlogout/>
-          
+          <Userlogout />
         </div>
       </div>
     </nav>

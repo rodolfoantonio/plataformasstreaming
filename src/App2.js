@@ -4,26 +4,30 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import { useSelector } from "react-redux";
 import CardPrueba from "./components/card/CardPrueba";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
+function App2() {
   const movies = useSelector((state) => state.movies.value);
 
   return (
     <div className="App">
+      <Router>
         <Navbar />
-      <div className="row">
-        {movies.map((movie) => (
-          //console.log(movie.original_title);
-          <CardPrueba movie={movie} />
-        ))}
-      </div>
-      <header className="App-header">
-        
-      </header>
-      
+        <div className="row">
+          <Routes>
+            <Route path="/catalogo" element={<div className="text-light">Este es el catalogo</div>}/>
+            <Route path="/mispeliculas" element={<div className="text-light">Estas son mis peliculas</div>}/>
+          </Routes>
+
+          {movies.map((movie) => (
+            //console.log(movie.original_title);
+            <CardPrueba movie={movie} />
+          ))}
+        </div>
+        {/* <header className="App-header"></header> */}
+      </Router>
     </div>
- 
   );
 }
 
-export default App;
+export default App2;
