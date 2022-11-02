@@ -2,13 +2,15 @@ import React from "react"
  function Footer(){
 
     return  ( 
+
+        <>
        
 <footer class="text-center text-lg-start bg-dark text-muted">
 
 <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     
     <div class="me-5 d-none d-lg-block">
-      Nos puedes contactar por medio de nuestras redes sociales:
+     <span> Nos puedes contactar por medio de nuestras redes sociales:</span>
     </div>
 
     <div>
@@ -73,11 +75,9 @@ import React from "react"
     <a class="text-reset fw-bold" href="https://colombia.unir.net/">UNIR</a>
   </div>
 
-
- 
-
-
 </footer>
+
+</>
 
 
     );
