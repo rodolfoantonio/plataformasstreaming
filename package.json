@@ -47,10 +47,6 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0",
-<<<<<<< HEAD
-    "web-vitals": "^3.0.4"
-=======
     "web-vitals": "^2.1.4"
->>>>>>> e968ab053c11d3997a4a02785ba83033ec59cd2e
   }
 }
