@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import logo from "./assets/logo.svg";
 import "./App.css";
 
@@ -20,6 +21,19 @@ function App() {
       <header className="App-header">
       </header>
     </div>
+=======
+
+import './App.css';
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        
+      </header>
+      
+    </div>
+ 
+>>>>>>> 464e39264e7d1dd21713c8a01364bd886b75a9aa
   );
 }
 
