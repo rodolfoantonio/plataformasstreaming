@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
+      <div className="container">
         <button
           className="navbar-toggler"
           type="button"
@@ -29,7 +29,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/mispeliculas" className="nav-link">
+              <Link to="/" className="nav-link">
                 Mis películas
               </Link>
             </li>

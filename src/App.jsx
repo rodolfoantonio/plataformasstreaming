@@ -19,24 +19,7 @@ function App() {
   const [playing, setPlaying] = useState(false);
   const [searchKey, setSearchKey] = useState('');
 
-  // Función para realizar petición por get a la API
-  const fetchMovies = async(searchKey) => {
-    const type = searchKey ? "search" : "discover";
-    const { data: { results }, } = await axios.get(
-      `${API_URL}/${type}/movie`, {
-        params: {
-          api_key: API_KEY,
-          // Se utiliza para filtrar o buscar la movie
-          query: searchKey
-        }
-      }
-    );
-
-    // Se guardan todas las peliculas - Son máximo 20
-    setMovies(results);
-    // Se guarda la primera pelicula
-    setMovie(results[0]);
-  }
+ 
 
   // Función para buscar pelicula
   const searchMovies = (e) => {
