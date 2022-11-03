@@ -4,6 +4,7 @@ import "./index.css";
 import Footer from "./components/footer/Footer";
 
 import App2 from "./App2";
+import App3 from "./App3";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
@@ -11,10 +12,8 @@ import store from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  //<React.StrictMode>
   <Provider store={store}>
-    <App2 />
-    <Footer />
+     <App3 />
   </Provider>
 );
 
