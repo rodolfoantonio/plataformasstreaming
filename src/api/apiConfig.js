@@ -1,5 +1,3 @@
-import { isRejected } from "@reduxjs/toolkit";
-
 export const URL_IMAGE = "https://image.tmdb.org/t/p/original";
 
 export const getAlquiladas = () => {
