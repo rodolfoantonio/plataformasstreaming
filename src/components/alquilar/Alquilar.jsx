@@ -8,7 +8,7 @@ const Alquilar = (props) => {
 
   return (
     <button 
-      className="btn-danger position-absolute end-0 top-0 m-2"
+      className="btn-danger position-absolute end-0 top-0 m-4"
       onClick={()=>dispatch(alquilar(props.movie))}
     >
       Alquilar
