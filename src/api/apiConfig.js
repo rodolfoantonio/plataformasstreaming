@@ -1,3 +1,5 @@
+import { eliminarPorID } from "./utils";
+
 /* devuelve un objeto JSON de la forma {results:[{propsmovie1, propsmovie2....}]}
 el objeto está guardado en el localstorage en el item "alquiladas" */
 export const getAlquiladas = () => {
@@ -21,7 +23,7 @@ export const setAlquilada = (propiedadesAlquilada) => {
     id: propiedadesAlquilada.id,
     poster_path: propiedadesAlquilada.poster_path,
     title: propiedadesAlquilada.title,
-    realease_date: propiedadesAlquilada.release_date,
+    release_date: propiedadesAlquilada.release_date,
     original_language: propiedadesAlquilada.original_language,
     vote_average: propiedadesAlquilada.vote_average,
     overview: propiedadesAlquilada.overview,
@@ -38,9 +40,9 @@ export const setAlquilada = (propiedadesAlquilada) => {
 
 export const eliminarAlquilada = (propiedadesAlquilada) => {
   const alquiladas = getAlquiladas();
-
-  
-
+  const id = propiedadesAlquilada.id;
+  const peliculasRestantes = eliminarPorID(id, alquiladas);
+  window.localStorage.setItem("alquiladas", JSON.stringify(peliculasRestantes));
 };
 
 const apiConfig = {

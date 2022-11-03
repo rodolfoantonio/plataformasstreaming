@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { setAlquilada, getAlquiladas } from "../api/apiConfig";
+import { setAlquilada, getAlquiladas, eliminarAlquilada } from "../api/apiConfig";
 
 export const alquiladasSlice = createSlice({
   name: "alquiladas",
@@ -9,12 +9,12 @@ export const alquiladasSlice = createSlice({
   },
   reducers: {
     alquilar: (state, action) => {
-      
       setAlquilada(action.payload);
-      return getAlquiladas().results;
+      state.value = getAlquiladas().results;
     },
     devolver:(state, action)=>{
-
+      eliminarAlquilada(action.payload);
+      state.value = getAlquiladas().results;
     }
   },
   extraReducers(builder) {},

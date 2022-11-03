@@ -2,9 +2,18 @@ import React from "react";
 
 import apiConfig from '../../api/apiConfig'
 import Alquilar from "../alquilar/Alquilar";
+import Devolver from "../devolver/Devolver";
 import { movieAJson } from "../../api/utils";
 
-const CardMovie = ({ movie }) => {
+const CardMovie = ({ movie, tipo }) => {
+  let tipoBoton;
+  if(tipo=="alquilar"){
+    tipoBoton = <Alquilar key={movie.id+"_alquilar"} movie={movieAJson(movie)}/>
+  }
+  if(tipo=="devolver"){
+    tipoBoton = <Devolver key={movie.id+"_alquilar"} movie={movieAJson(movie)}/>
+  }
+
   return (
     <div key={movie.id} className="col-sm-8 col-md-6 col-lg-4 d-flex justify-content-center mb-5 position-relative">
       <div className="border">
@@ -15,7 +24,9 @@ const CardMovie = ({ movie }) => {
         width="80%"
         style={{display: 'block', margin: '0 auto'}}
       />
-      <Alquilar key={movie.id+"_alquilar"} movie={movieAJson(movie)}/>
+      
+      {tipoBoton}
+      
       <div className="px-3 pt-2">
         <h2 className="pt-3">{`${movie.title} (${movie.release_date})`}</h2>
         <h5>Idioma: {movie.original_language}</h5>

@@ -30,7 +30,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/plataformasstreaming" className="nav-link">
+              <Link to="/mispeliculas" className="nav-link">
                 Mis películas
               </Link>
             </li>

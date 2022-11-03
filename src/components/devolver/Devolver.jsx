@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { alquilar } from "../../redux/alquiladasSlice";
+import { alquilar,devolver } from "../../redux/alquiladasSlice";
 
 const Devolver = (props) => {
   const dispatch = useDispatch();
@@ -8,12 +8,12 @@ const Devolver = (props) => {
 
   return (
     <button 
-      className="btn-danger position-absolute end-0 top-0 m-4"
-      onClick={()=>dispatch(alquilar(props.movie))}
+      className="btn-success position-absolute end-0 top-0 m-4"
+      onClick={()=>dispatch(devolver(props.movie))}
     >
       Devolver
     </button>
   );
 };
 
-export default Alquilar;
+export default Devolver;
