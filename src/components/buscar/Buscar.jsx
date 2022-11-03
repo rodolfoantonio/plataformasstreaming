@@ -3,13 +3,32 @@ import "./Buscar.css";
 
 import { useSelector, useDispatch } from "react-redux";
 import { fetchBySearch } from "../../redux/moviesSlice";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Buscar = () => {
   const movies = useSelector((state) => state.movies.value);
   const dispatch = useDispatch();
 
-  const [terminoBusqueda, setTerminoBusqueda ]= useState("");
+  const [terminoBusqueda, setTerminoBusqueda] = useState("");
+
+  useEffect(() => {
+    dispatch(
+      fetchBySearch({
+        type: "discover",
+        terminoBusqueda: terminoBusqueda,
+      })
+    );
+  }, []);
+
+  const buscar = (e) => {
+    setTerminoBusqueda(e.target.value);
+    dispatch(
+      fetchBySearch({
+        type: "search",
+        terminoBusqueda: terminoBusqueda,
+      })
+    );
+  };
 
   return (
     <input
@@ -18,16 +37,14 @@ const Buscar = () => {
       placeholder="Buscar"
       id=""
       onChange={(e) => {
-        setTerminoBusqueda(e.target.value);
-        dispatch(fetchBySearch(terminoBusqueda));
+        buscar(e);
       }}
       onKeyDown={(e) => {
         if (e.key === "Enter") {
-          dispatch(fetchBySearch(terminoBusqueda));
+          buscar(e);
         }
       }}
     />
-    
   );
 };
 
