@@ -1,3 +1,6 @@
+/* toma el objeto movie que viene de la API con los parámetros que 
+se muestran a continuación y devuleve un objeto JSON normalizado
+para ser guardado posteriormente en {results:[]} */
 export const movieAJson= (movie)=>{
     const movieJson = {
         id: movie.id,

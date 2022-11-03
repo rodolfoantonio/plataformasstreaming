@@ -1,5 +1,7 @@
 export const URL_IMAGE = "https://image.tmdb.org/t/p/original";
 
+/* devuelve un objeto JSON de la forma {results:[{propsmovie1, propsmovie2....}]}
+el objeto está guardado en el localstorage en el item "alquiladas" */ 
 export const getAlquiladas = () => {
   const alquiladasString = window.localStorage.getItem("alquiladas");
 
@@ -12,6 +14,10 @@ export const getAlquiladas = () => {
   return alquiladas;
 };
 
+/* agrega un  elemento json con las propiedades de la pelicula alquilada 
+al item "alquiladas" del localstorage. Recibe como parámetro de entrada dicho objeto 
+que es creado con ayuda de la funcion utils movieAJSON que puede ser llamada en otros 
+componentes */
 export const setAlquilada = (propiedadesAlquilada) => {
   const movie = {
     id: propiedadesAlquilada.id,
