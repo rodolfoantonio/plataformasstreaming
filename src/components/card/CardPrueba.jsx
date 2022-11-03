@@ -1,5 +1,6 @@
 import React from "react";
 import { URL_IMAGE } from "../../api/apiConfig";
+import Alquilar from "../alquilar/Alquilar";
 
 const CardPrueba = ({ movie }) => {
   return (
@@ -10,7 +11,7 @@ const CardPrueba = ({ movie }) => {
         height={400}
         width="100%"
       />
-      <button className="btn-danger position-absolute end-0 top-0 m-2">Alquilar</button>
+      <Alquilar/>
       <div className="px-3 pt-2">
         <h2 className="pt-3">{`${movie.title} (${movie.release_date})`}</h2>
         <h5>Idioma: {movie.original_language}</h5>
