@@ -15,6 +15,10 @@ export const movieAJson= (movie)=>{
       return movieJson;
 }
 
+/* recibe un objeto de tipo {results:[{propsmovie1, propsmovie2....}]} */
 export const eliminarPorID = (id, listaPeliculas)=>{
+  const listaPeliculas = listaPeliculas.results;
+
   
+
 }
