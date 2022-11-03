@@ -19,6 +19,7 @@ const Buscar = () => {
       id=""
       onChange={(e) => {
         setTerminoBusqueda(e.target.value);
+        dispatch(fetchBySearch(terminoBusqueda));
       }}
       onKeyDown={(e) => {
         if (e.key === "Enter") {
