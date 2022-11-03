@@ -7,7 +7,7 @@ import Catalogo from '../pages/Catalogo';
 const Router = () => {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
+      <Route path='/plataformasstreaming' element={<Home />} />
       <Route path='/catalogo' element={<Catalogo />} />
     </Routes>
   )

@@ -29,7 +29,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-link">
+              <Link to="/plataformasstreaming" className="nav-link">
                 Mis películas
               </Link>
             </li>
@@ -37,7 +37,6 @@ const Navbar = () => {
               <Buscar />
             </li>
           </ul>
-
           <Userlogout />
         </div>
       </div>
