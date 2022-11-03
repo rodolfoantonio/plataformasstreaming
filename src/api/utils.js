@@ -14,3 +14,7 @@ export const movieAJson= (movie)=>{
       
       return movieJson;
 }
+
+export const eliminarPorID = (id, listaPeliculas)=>{
+  
+}

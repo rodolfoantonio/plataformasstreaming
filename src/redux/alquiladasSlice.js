@@ -13,10 +13,13 @@ export const alquiladasSlice = createSlice({
       setAlquilada(action.payload);
       return getAlquiladas().results;
     },
+    devolver:(state, action)=>{
+
+    }
   },
   extraReducers(builder) {},
 });
 
-export const { alquilar } = alquiladasSlice.actions;
+export const { alquilar, devolver } = alquiladasSlice.actions;
 
 export default alquiladasSlice.reducer;

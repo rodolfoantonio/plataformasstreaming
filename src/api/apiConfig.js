@@ -1,5 +1,5 @@
 /* devuelve un objeto JSON de la forma {results:[{propsmovie1, propsmovie2....}]}
-el objeto está guardado en el localstorage en el item "alquiladas" */ 
+el objeto está guardado en el localstorage en el item "alquiladas" */
 export const getAlquiladas = () => {
   const alquiladasString = window.localStorage.getItem("alquiladas");
 
@@ -33,18 +33,22 @@ export const setAlquilada = (propiedadesAlquilada) => {
 
   console.log(JSON.stringify(alquiladas.results));
 
-  window.localStorage.setItem(
-    "alquiladas",
-    JSON.stringify(alquiladas)
-  );
+  window.localStorage.setItem("alquiladas", JSON.stringify(alquiladas));
+};
+
+export const eliminarAlquilada = (propiedadesAlquilada) => {
+  const alquiladas = getAlquiladas();
+
+  
+
 };
 
 const apiConfig = {
-    apiUrl: 'https://api.themoviedb.org/3',
-    apiKey: '04d1bacfe90a25350330665d5f18d1fa',
-    originalImage: (imgPath) => `https://image.tmdb.org/t/p/original${imgPath}`,
-    imageW500: (imgPath) => `https://image.tmdb.org/t/p/w500/${imgPath}`,
-    URL_IMAGE: 'https://image.tmdb.org/t/p/original'
-}
+  apiUrl: "https://api.themoviedb.org/3",
+  apiKey: "04d1bacfe90a25350330665d5f18d1fa",
+  originalImage: (imgPath) => `https://image.tmdb.org/t/p/original${imgPath}`,
+  imageW500: (imgPath) => `https://image.tmdb.org/t/p/w500/${imgPath}`,
+  URL_IMAGE: "https://image.tmdb.org/t/p/original",
+};
 
 export default apiConfig;
