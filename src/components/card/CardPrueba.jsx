@@ -1,6 +1,7 @@
 import React from "react";
 import { URL_IMAGE } from "../../api/apiConfig";
 import Alquilar from "../alquilar/Alquilar";
+import { movieAJson } from "../../api/utils";
 
 const CardPrueba = ({ movie }) => {
   return (
@@ -11,7 +12,7 @@ const CardPrueba = ({ movie }) => {
         height={400}
         width="100%"
       />
-      <Alquilar/>
+      <Alquilar key={movie.id+"_alquilar"} movie={movieAJson(movie)}/>
       <div className="px-3 pt-2">
         <h2 className="pt-3">{`${movie.title} (${movie.release_date})`}</h2>
         <h5>Idioma: {movie.original_language}</h5>
