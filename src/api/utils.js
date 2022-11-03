@@ -19,6 +19,6 @@ export const movieAJson= (movie)=>{
 export const eliminarPorID = (id, listaPeliculas)=>{
   const listaPeliculas = listaPeliculas.results;
 
+  const peliculasRestantes = listaPeliculas.filter(movie=>movie.id!=id); 
   
-
 }
