@@ -3,7 +3,7 @@ import "./Userlogout.css";
 
 const Userlogout = () => {
   return (
-    <div className="dropdown dropstart userIcon">
+    <div className="dropdown dropbottom userIcon">
       <button
         className="btn btn-secondary dropdown-toggle"
         type="button"

@@ -8,7 +8,7 @@ import MisPeliculas from './../pages/MisPeliculas';
 const Router = () => {
   return (
     <Routes>
-      <Route path='/plataformasstreaming' element={<Home />} />
+      <Route path='/' element={<Home />} />
       <Route path='/catalogo' element={<Home />} />
       <Route path='/mispeliculas' element={<MisPeliculas />} />
     </Routes>
