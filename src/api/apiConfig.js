@@ -6,7 +6,7 @@ export const getAlquiladas = () => {
   const alquiladasString = window.localStorage.getItem("alquiladas");
 
   if (alquiladasString == null) {
-    console.log("alquiladas string " + alquiladasString);
+    //console.log("alquiladas string " + alquiladasString);
     return { results: [] };
   }
 
@@ -19,7 +19,7 @@ al item "alquiladas" del localstorage. Recibe como parámetro de entrada dicho o
 que es creado con ayuda de la funcion utils movieAJSON que puede ser llamada en otros 
 componentes */
 export const setAlquilada = (propiedadesAlquilada) => {
-  console.log(propiedadesAlquilada);
+  //console.log(propiedadesAlquilada);
   const movie = {
     id: propiedadesAlquilada.id,
     poster_path: propiedadesAlquilada.poster_path,
@@ -34,7 +34,7 @@ export const setAlquilada = (propiedadesAlquilada) => {
   const alquiladas = getAlquiladas();
   alquiladas.results.push(movie);
 
-  console.log(JSON.stringify(alquiladas.results));
+  //console.log(JSON.stringify(alquiladas.results));
 
   window.localStorage.setItem("alquiladas", JSON.stringify(alquiladas));
 };

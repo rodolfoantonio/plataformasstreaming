@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
 import { setAlquilada, getAlquiladas, eliminarAlquilada } from "../api/apiConfig";
 
 export const alquiladasSlice = createSlice({

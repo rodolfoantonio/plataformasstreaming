@@ -14,6 +14,17 @@ const apiTmdb = {
 
       return results;
     },
+    // Método para obtener una única película
+    getMovie: async (id) => {
+      const { data } = await axios.get(`${apiConfig.apiUrl}/movie/${id}`, {
+        params: {
+          api_key: apiConfig.apiKey,
+          append_to_response: 'videos'
+        }
+      });
+
+      return data;
+    }
 }
 
 export default apiTmdb;

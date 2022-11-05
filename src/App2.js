@@ -3,7 +3,7 @@ import "./App.css";
 
 import Navbar from "./components/navbar/Navbar";
 import { useSelector } from "react-redux";
-import CardPrueba from "./components/card/CardPrueba";
+import CardPrueba from "./components/cardmovie/CardPrueba";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App2() {

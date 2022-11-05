@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from "react-redux";
 
-import CardMovie from '../components/card/CardMovie';
+import CardMovie from '../components/cardmovie/CardMovie';
 
 const MisPeliculas = () => {
   const movies = useSelector((state) => state.alquiladas.value);

@@ -1,10 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-
 import apiTmdb from "../api/apiTmdb";
 
 export const moviesSlice = createSlice({
-    name:"movies",
+    name: "movies",
     initialState:{
         value:[]
     },
