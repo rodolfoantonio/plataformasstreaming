@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import apiTmdb from "../api/apiTmdb";
+import apiTmdb from "../api/apiTMDb/apiTmdb";
 
 export const moviesSlice = createSlice({
     name: "movies",

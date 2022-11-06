@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setAlquilada, getAlquiladas, eliminarAlquilada } from "../api/apiConfig";
+import { setAlquilada, getAlquiladas, eliminarAlquilada } from "../api/apiTMDb/apiConfig";
 
 export const alquiladasSlice = createSlice({
   name: "alquiladas",

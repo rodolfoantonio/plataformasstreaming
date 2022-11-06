@@ -1,23 +1,39 @@
 // This is a test from Ivan Vargas
 
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './router/Router';
+import { firebaseApp } from './api/apiFirebase/apiConfig';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
+import Login from './pages/Login';
 
-import Home from './pages/Home';
-import Catalogo from './pages/Catalogo';
-
-import Router from './router/Router';
+const auth = getAuth(firebaseApp);
 
 const App3 = () => {
+  const [usuario, setUsuario] = useState(false);
+
+  onAuthStateChanged(auth, (usuarioFirebase) => {
+    if(usuarioFirebase)
+      setUsuario(usuarioFirebase)
+    else
+      setUsuario(null);
+  });
+
   return (
-    <BrowserRouter>
+    <>
+    {console.log(usuario)}
+      {usuario ? (
+      <BrowserRouter>
         <Navbar />
           <Router />
         <Footer />
-    </BrowserRouter>
+      </BrowserRouter>) :
+      <Login />
+      }
+    </>
   );
 }
 

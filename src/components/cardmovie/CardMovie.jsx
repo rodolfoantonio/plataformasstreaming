@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import apiConfig from '../../api/apiConfig'
+import apiConfig from '../../api/apiTMDb/apiConfig'
 import Alquilar from "../alquilar/Alquilar";
 import Devolver from "../devolver/Devolver";
-import { movieAJson } from "../../api/utils";
+import { movieAJson } from "../../api/apiTMDb/utils";
 import { fetchMovie } from '../../redux/movieSlice';
 
 const CardMovie = ({ movie, tipo }) => {

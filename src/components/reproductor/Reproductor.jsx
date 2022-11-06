@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import YouTube from 'react-youtube';
 
-import apiConfig from '../../api/apiConfig';
+import apiConfig from '../../api/apiTMDb/apiConfig';
 import InfoBanner from '../infobanner/InfoBanner';
 
 const Reproductor = () => {
@@ -24,7 +24,7 @@ const Reproductor = () => {
   const updatePlaying = () => setPlaying(true);
 
   return (
-    <div>
+    <>
       <main>
         {movie ? (
           <div
@@ -58,11 +58,11 @@ const Reproductor = () => {
                   Close
                 </button>
               </>
-            ) : ( <InfoBanner movie={movie} trailer={trailer} HandlerUpdatePlaying={ (state) => updatePlaying }/> )}
+            ) : ( <InfoBanner movie={movie} trailer={trailer} HandlerUpdatePlaying={ (state) => updatePlaying } /> )}
           </div>
         ) : null}
       </main>
-    </div>
+    </>
   );
 };
 

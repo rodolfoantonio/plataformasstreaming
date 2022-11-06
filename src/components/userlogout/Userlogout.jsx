@@ -1,5 +1,9 @@
 import React from "react";
+import { firebaseApp } from '../../api/apiFirebase/apiConfig';
+import { getAuth, signOut } from "firebase/auth";
 import "./Userlogout.css";
+
+const auth = getAuth(firebaseApp);
 
 const Userlogout = () => {
   return (
@@ -28,8 +32,8 @@ const Userlogout = () => {
         aria-labelledby="dropdownMenuButton1"
       >
         <li>
-          <a className="dropdown-item" href="#">
-            Log out
+          <a className="dropdown-item" onClick={ () => signOut(auth) }>
+            Cerrar Sesión
           </a>
         </li>
       </ul>
