@@ -16,6 +16,14 @@ h1, h2, h3, h4, h5, p {
   color: white;
 }
 
+.sin-m{
+  margin: 0;
+}
+
+.sin-p{
+  padding: 0;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -51,25 +59,4 @@ h1, h2, h3, h4, h5, p {
   }
 }
 
-.viewtrailer{
-  min-height: 700px;
-  background-size: cover;
-  background-position:center;
 
-  display: flex;
-  align-items: flex-end;
-}
-.boton{
-  background-color: #a12121;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  outline: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-.reproductor{
-  width: 100%;
-  height: 800px;
-}

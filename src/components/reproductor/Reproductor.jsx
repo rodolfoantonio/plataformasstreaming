@@ -1,12 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import './Reproductor.css';
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import YouTube from 'react-youtube';
 
 import apiConfig from '../../api/apiTMDb/apiConfig';
 import InfoBanner from '../infobanner/InfoBanner';
 
-const Reproductor = () => {
+const Reproductor = ({ alquiladas }) => {
   const movie = useSelector((state) => state.movie.value);
 
   const [playing, setPlaying] = useState(false);
@@ -25,14 +26,10 @@ const Reproductor = () => {
 
   return (
     <>
-      <main>
+      <main className="seccion-reproductor">
         {movie ? (
-          <div
-            className="viewtrailer"
-            style={{
-              backgroundImage: `url("${apiConfig.URL_IMAGE}${movie.backdrop_path}")`,
-            }}
-          >
+          <div className={ `viewtrailer ${ !trailer || alquiladas.length == 0 ? 'd-none' : 'd-flex'} `}>
+            <img src={ `${apiConfig.URL_IMAGE}${movie.backdrop_path}` } className={ !trailer || alquiladas.length == 0 ? 'd-none' : 'd-block'} /> 
             {playing ? (
               <>
                 <YouTube
@@ -58,7 +55,7 @@ const Reproductor = () => {
                   Close
                 </button>
               </>
-            ) : ( <InfoBanner movie={movie} trailer={trailer} HandlerUpdatePlaying={ (state) => updatePlaying } /> )}
+            ) : ( <InfoBanner movie={movie} trailer={trailer} alquiladas={alquiladas} HandlerUpdatePlaying={ (state) => updatePlaying } /> )}
           </div>
         ) : null}
       </main>

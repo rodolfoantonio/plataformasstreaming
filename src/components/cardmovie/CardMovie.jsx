@@ -1,4 +1,6 @@
 import React from "react";
+import './CardMovie.css';
+import iconReproductor from '../../assets/icon-reproductor.png';
 import { useDispatch } from "react-redux";
 
 import apiConfig from '../../api/apiTMDb/apiConfig'
@@ -14,7 +16,8 @@ const CardMovie = ({ movie, tipo }) => {
     dispatch(
       fetchMovie(id)
     );
-    window.scrollTo(0, 0);
+    if(tipo=='devolver')
+      window.scrollTo(0, 0);
   };
   
   let tipoBoton;
@@ -28,17 +31,18 @@ const CardMovie = ({ movie, tipo }) => {
   return (
     <div 
       key={movie.id} 
-      className="col-10 col-xs-9 col-sm-9 col-md-6 col-lg-4 d-flex justify-content-center mb-5 position-relative"
-      onClick={ () => selectMovie(movie.id)}
+      className="col-10 col-xs-9 col-sm-9 col-md-6 col-lg-4 d-flex justify-content-center mb-5 position-relative seccion-cardmovie"
     >
 
       <div className="border">
-        <img
-          src={`${apiConfig.URL_IMAGE + movie.poster_path}`}
-          alt={movie.title}
-          width="100%"
-          style={{display: 'block', margin: '0 auto'}}
-        />
+        <div className="">
+          {tipo == 'devolver' ? <img src={ iconReproductor } className='icon-play' onClick={ () => selectMovie(movie.id)} /> : ''}
+          <img
+            src={`${apiConfig.URL_IMAGE + movie.poster_path}`}
+            alt={movie.title}
+            className='img-movie'
+          />
+        </div>
       
         {tipoBoton}
       

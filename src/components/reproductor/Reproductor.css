@@ -1,0 +1,33 @@
+.seccion-reproductor img {
+    padding-top: 3em;
+    background-size: cover;
+    height: 700px;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.seccion-reproductor .viewtrailer {
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+    align-items: flex-end;
+}
+
+.seccion-reproductor .boton {
+    background-color: #a12121;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.seccion-reproductor .reproductor {
+    width: 100%;
+    height: 800px;
+}

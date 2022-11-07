@@ -1,10 +1,9 @@
 import React from 'react'
 import { useSelector } from "react-redux";
 
-import Reproductor from '../components/reproductor/Reproductor';
 import CardMovie from '../components/cardmovie/CardMovie';
 
-const Home = () => {
+const Catalogo = () => {
   const movies = useSelector((state) => state.movies.value);
 
   return (
@@ -12,11 +11,6 @@ const Home = () => {
       <div className="row">
         <div className="col-12">
           <h2 className="text-center py-5">Catálogo de Peliculas</h2>
-        </div>
-      </div>
-      <div className='row'>
-        <div className='col-12'>
-          <Reproductor />
         </div>
       </div>
       <div className='container'>
@@ -28,4 +22,5 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default Catalogo;
+  

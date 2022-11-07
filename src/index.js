@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import Footer from "./components/footer/Footer";
+import './App.css'
 
-import App2 from "./App2";
-import App3 from "./App3";
+import App from "./App";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
@@ -13,7 +11,7 @@ import store from "./redux/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-     <App3 />
+     <App />
   </Provider>
 );
 

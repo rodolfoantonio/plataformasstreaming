@@ -14,13 +14,3 @@ export const movieAJson= (movie)=>{
       
       return movieJson;
 }
-
-/* recibe un objeto de tipo {results:[{propsmovie1, propsmovie2....}]} 
-Elimina de la lista en results, la pelicula según el id
-devuelve el objeto {results:[{con la peli eliminada}]}
-*/
-export const eliminarPorID = (id, listaPeliculas)=>{
-  const _listaPeliculas = listaPeliculas.results;
-  const peliculasRestantes = _listaPeliculas.filter(movie=>movie.id!=id); 
-  return {results:peliculasRestantes};
-}
