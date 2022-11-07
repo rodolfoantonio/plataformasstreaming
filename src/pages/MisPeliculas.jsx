@@ -9,12 +9,12 @@ const MisPeliculas = () => {
 
   return (
     <>
-      <div className='row'>
+      <div className='row sin-m'>
         <div className='col-12'>
           <h2 className='text-center py-5'>Mis Películas</h2>
         </div>
       </div>
-      <div className='row'>
+      <div className='row sin-m'>
         <div className='col-12'>
           <Reproductor alquiladas={movies} />
         </div>

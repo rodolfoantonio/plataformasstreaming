@@ -34,7 +34,7 @@ const Reproductor = ({ alquiladas }) => {
               <>
                 <YouTube
                   videoId={trailer.key}
-                  className="reproductor container"
+                  className="reproductor"
                   containerClassName={"youtube-container amru"}
                   opts={{
                     width: "100%",
@@ -51,7 +51,7 @@ const Reproductor = ({ alquiladas }) => {
                     },
                   }}
                 />
-                <button onClick={() => setPlaying(false)} className="boton">
+                <button onClick={() => setPlaying(false)} className="boton btn-cerrar">
                   Close
                 </button>
               </>
