@@ -4,7 +4,7 @@ const InfoBanner = ({ trailer, movie, alquiladas, HandlerUpdatePlaying }) => {
 
   return (
     <div className="container pb-3">
-      <div className="pb-5">
+      <div className="pb-0 pb-sm-5">
         {trailer ? (
           <button
             className="boton mb-4"
