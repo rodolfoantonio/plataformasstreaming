@@ -10,6 +10,13 @@ import {
 
 import axios from "axios";
 
+/**
+ * Consulta el endpoint de registro. Agrega un usuario a la tabla Usuario de la base de datos
+ * @param {string} email
+ * @param {string} password
+ * @param {string} nombre
+ * @param {string} role Debe tomar los valores ADMIN y USER
+ */
 export function registro(email, password, nombre, role) {
   axios
     .post(URL_BASE + ENDPOINT_REGISTRO, {
