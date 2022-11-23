@@ -26,8 +26,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "docs": "jsdoc src/api/apiSpring/apiSpring.js",
-    "docu": "documentation build src/api/apiSpring/apiSpring.js -f html -o docs"
+    "docs": "documentation build src/api/apiSpring/apiSpring.js -f html -o docs"
   },
   "eslintConfig": {
     "extends": [
