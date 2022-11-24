@@ -99,7 +99,7 @@ export async function agregarPeliculaCatalogo(
   vote_average,
   overview
 ) {
-  let res = axios.post(
+  let res = await axios.post(
     URL_BASE + ENDPOINT_PELICULA_CATALOGO,
     {
       idPelicula: idPelicula,
