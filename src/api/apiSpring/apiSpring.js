@@ -16,7 +16,7 @@ import axios from "axios";
  * Consulta el endpoint de registro. Agrega un usuario a la tabla Usuario de la base de datos
  * @param {string} email
  * @param {string} password
- * @param {string} nombre
+ * @param {string} nombre 
  * @param {string} role Debe tomar los valores ADMIN y USER
  * @returns {json} {email:email, nombre:nombre, role:role} o bien la palabra "duplicado" en caso que el usuario ya exista
  */
@@ -28,7 +28,7 @@ export async function registro(email, password, nombre, role) {
     role: role,
   });
 
-  console.log(res.data);
+  console.log(dataUser.data);
   return dataUser.data;
 }
 
@@ -50,8 +50,8 @@ export async function login(email, password) {
     { withCredentials: true }
   );
 
-  console.log(res.data);
-  return res.data;
+  console.log(dataUser.data);
+  return dataUser.data;
 }
 
 /**
@@ -194,7 +194,7 @@ export async function borrarPeliculaAlquilada(idAlquilada) {
   let res = await axios.delete(
     URL_BASE + ENDPOINT_PELICULA_ALQUILADA,
     {
-      idPelicula: idPelicula,
+      idAlquilada: idAlquilada,
     },
     {
       withCredentials: true,
