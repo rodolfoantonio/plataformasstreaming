@@ -65,7 +65,7 @@ export async function obtenerPeliculasCatalogo() {
   });
 
   console.log(peliculas.data);
-  return { results: peliculas.data };
+  return peliculas.data ;
 }
 
 /**
@@ -151,7 +151,7 @@ export async function obtenerPeliculasAlquiladas() {
   });
 
   console.log(peliculas.data);
-  return { results: peliculas.data };
+  return peliculas.data;
 }
 
 /**
