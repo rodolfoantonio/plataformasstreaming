@@ -265,7 +265,7 @@ export function isLogged(){
  */
  export function getDataUser(){
   axios
-    .get(URL_BASE + ENDPOINT_LOGGED, { withCredentials: true })
+    .get(URL_BASE + ENDPOINT_DATAUSER, { withCredentials: true })
     .then((res) => {
       console.log(res.data);
       return res.data;
