@@ -5,3 +5,4 @@ export const ENDPOINT_PELICULA_CATALOGO = "/pelicula";
 export const ENDPOINT_PELICULA_ALQUILADA = "/alquilada";
 export const ENDPOINT_ROLE = "/role";
 export const ENDPOINT_LOGOUT = "/logout";
+export const ENDPOINT_LOGGED = "/logged";

@@ -6,6 +6,7 @@ import {
   ENDPOINT_PELICULA_CATALOGO,
   ENDPOINT_REGISTRO,
   ENDPOINT_ROLE,
+  ENDPOINT_LOGGED
 } from "./apiConfig";
 
 import axios from "axios";
@@ -242,4 +243,18 @@ export function logout() {
       console.log(res.data);
       return res.data;
     });
+}
+
+/**
+ * Determina si un usuario está logueado
+ * 
+ * @returns {boolean} 
+ */
+export function isLogged(){
+  axios
+    .get(URL_BASE + ENDPOINT_LOGGED, { withCredentials: true })
+    .then((res) => {
+      console.log(res.data);
+      return res.data;
+    });  
 }
