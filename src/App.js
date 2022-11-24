@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import sweetAlert from "./api/apiFirebase/sweetAlert";
 import { BrowserRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -28,14 +28,22 @@ const App3 = () => {
     else
       setUsuario(null);
   }); */
+  
+  useEffect(() => {
+
+    let l = await isLogged();  
+    console.log("use effect "+l);
+  },[])
+
   if (isLogged()) {
-    setUsuario(getDataUser());
+    console.log("logueado");
+    //setUsuario(getDataUser());
   } else {
     setUsuario(null);
   }
 
-  const setState = async (usuario) => {
-    let dataUser = getDataUser(); //await apiFirestore.getDataUser(usuario);
+  const setState = (usuario) => {
+    let dataUser =  await apiFirestore.getDataUser(usuario);
     if (dataUser /*&& dataUser.uid != ''*/) {
       dispatch(setDataUser({ email: dataUser.email, nombre:dataUser.nombre, role: dataUser.role}));
 
@@ -63,7 +71,7 @@ const App3 = () => {
           <Footer />
         </BrowserRouter>
       ) : (
-        <Login />
+        <div>No estas logueado {/* <Login /> */}</div> 
       )}
     </>
   );

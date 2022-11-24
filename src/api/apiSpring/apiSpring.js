@@ -232,8 +232,8 @@ export async function logout() {
 
 /**
  * Determina si un usuario está logueado
- *
- * @returns {boolean}
+ * @async
+ * @returns {Promise<boolean>} cadena
  */
 export async function isLogged() {
   let res = await axios.get(URL_BASE + ENDPOINT_LOGGED, {
