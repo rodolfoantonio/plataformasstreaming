@@ -16,17 +16,17 @@ const CardMovie = ({ movie, tipo }) => {
     dispatch(
       fetchMovie(id)
     );
-    if(tipo=='devolver')
+    if(tipo === 'devolver')
       window.scrollTo(0, 0);
   };
   
   let tipoBoton;
-  if(tipo=="alquilar"){
+
+  if(tipo === "alquilar" || tipo === "agregar")
     tipoBoton = <Alquilar key={movie.id+"_alquilar"} movie={movieAJson(movie)}/>
-  }
-  if(tipo=="devolver"){
-    tipoBoton = <Devolver key={movie.id+"_alquilar"} movie={movieAJson(movie)}/>
-  }
+
+  if(tipo === "devolver" || tipo === "eliminar")
+    tipoBoton = <Devolver key={movie.id+"_devolver"} movie={movieAJson(movie)}/>
 
   return (
     <div 

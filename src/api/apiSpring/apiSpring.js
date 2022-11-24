@@ -42,8 +42,8 @@ export function registro(email, password, nombre, role) {
  * si el usuario no está registrado se devuelve la cadena "usuario no existe"
  * si el password es incorrecto, se devuelve la cadena "password incorrecto"
  */
-export function login(email, password) {
-  axios
+export async function login(email, password) {
+  let dataUser = await axios
     .post(
       URL_BASE + ENDPOINT_LOGIN,
       {
@@ -51,11 +51,10 @@ export function login(email, password) {
         password: password,
       },
       { withCredentials: true }
-    )
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
+    );
+
+    console.log(dataUser.data);
+    return dataUser.data;
 }
 
 /**
@@ -97,20 +96,9 @@ export function obtenerPeliculasCatalogo() {
  * en caso contrario, devuelve la cadena "duplicada"
  *
  */
-export function agregarPeliculaCatalogo(
-  idPelicula,
-  poster_path,
-  title,
-  release_date,
-  original_language,
-  vote_average,
-  overview
-) {
-  axios
-    .post(
-      URL_BASE + ENDPOINT_PELICULA_CATALOGO,
-      {
-        idPelicula: idPelicula,
+export async function agregarPeliculaCatalogo({ id, poster_path, title, release_date, original_language, vote_average, overview }) {
+  let response = await axios.post( URL_BASE + ENDPOINT_PELICULA_CATALOGO, {
+        idPelicula: id,
         poster_path: poster_path,
         title: title,
         release_date: release_date,
@@ -121,11 +109,10 @@ export function agregarPeliculaCatalogo(
       {
         withCredentials: true,
       }
-    )
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
+    );
+
+    console.log(response.data);
+    return response.data;
 }
 
 /**
@@ -205,6 +192,7 @@ export function agregarPeliculaAlquilada(idPelicula) {
  *   "idAlquilada": 1
  * }
  */
+/*
 export function borrarPeliculaAlquilada(idAlquilada) {
   axios
     .delete(
@@ -221,6 +209,7 @@ export function borrarPeliculaAlquilada(idAlquilada) {
       return res.data;
     });
 }
+*/
 
 /**
  * Devuelve una cadena con el role del usuario logueado.

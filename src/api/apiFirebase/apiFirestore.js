@@ -43,6 +43,8 @@ const apiFirestore = {
             nombre: dataUser.nombre,
             uid: dataUser.uid,
             mispeliculas: dataUser.mispeliculas,
+            // Este dato se pasa manual, pero luego lo traera la db
+            role: 'ADMIN'
         });
     },
     getMisPeliculas: async ({ uid }) => {

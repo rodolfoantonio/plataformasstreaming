@@ -9,10 +9,10 @@ const Devolver = ({ movie }) => {
 
   return (
     <button 
-      className="btn-success position-absolute end-0 top-0 m-4"
+      className="btn-danger position-absolute end-0 top-0 m-4"
       onClick={() => dispatch( deleteOfMisPeliculas({ user, movie, misPeliculas }) )}
     >
-      Devolver
+      { user.role === 'ADMIN' ? 'Eliminar' : 'Devolver' }
     </button>
   );
 };

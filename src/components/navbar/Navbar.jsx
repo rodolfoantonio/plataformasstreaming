@@ -3,9 +3,10 @@ import "./Navbar.css";
 import Buscar from "../buscar/Buscar";
 import Userlogout from "../userlogout/Userlogout";
 import { Link } from "react-router-dom";
-
+import { useSelector} from "react-redux";
 
 const Navbar = () => {
+  const usuario = useSelector((state) => state.user.value);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,8 +31,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/mispeliculas" className="nav-link">
-                Mis películas
+              <Link to={ usuario.role === 'ADMIN' ? '/moviestmdb' : '/mispeliculas'} className="nav-link">
+                { usuario.role === 'ADMIN' ? 'Movies API TMDB' : 'Mis películas'}
               </Link>
             </li>
             <li className="nav-item">

@@ -29,7 +29,7 @@ const App3 = () => {
   const setState = async (usuario) => {
     let dataUser = await apiFirestore.getDataUser(usuario);
     if(dataUser && dataUser.uid != '')
-      dispatch( setDataUser({ email: dataUser.email, uid: dataUser.uid }) );
+      dispatch( setDataUser({ email: dataUser.email, uid: dataUser.uid, role: dataUser.role }) );
     dispatch( setMisPeliculas(dataUser.mispeliculas) );
 
     sweetAlert.showSignIn(dataUser);
