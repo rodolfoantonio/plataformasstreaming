@@ -22,5 +22,5 @@ const TheAPIMDB = () => {
   );
 }
 
-export default Catalogo;
+export default TheAPIMDB;
   
