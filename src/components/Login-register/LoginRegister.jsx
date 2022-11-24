@@ -3,10 +3,14 @@ import './LoginRegister.css';
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { setDataUser } from "../../redux/userSlice";
+
 import { firebaseApp } from '../../api/apiFirebase/apiConfig';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, collection, addDoc, doc, updateDoc, query, where  } from 'firebase/firestore';
 import  apiFirestore  from '../../api/apiFirebase/apiFirestore';
+
+import { login } from "../../api/apiSpring/apiSpring";
+
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 
@@ -25,8 +29,13 @@ const LoginRegister = () => {
         let uid = await apiFirestore.createUserInFirestore(email, password, nombre);
         if(uid != '')
           dispatch( setDataUser({ email: email, uid: uid }) );
-      } else
-        await apiFirestore.signInWithEmailAndPass(email, password);
+      } else{
+        let dataUSer = await login(email, password);
+        dispatch(setDataUser(dataUSer));
+        console.log(dataUSer);
+        //window.location.reload(false);
+        /* await login(email, password); */ /* apiFirestore.signInWithEmailAndPass(email, password); */
+      }
     }catch(error){
       console.log(error)
     }

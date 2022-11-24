@@ -7,7 +7,7 @@ import {
   ENDPOINT_REGISTRO,
   ENDPOINT_ROLE,
   ENDPOINT_LOGGED,
-  ENDPOINT_DATAUSER
+  ENDPOINT_DATAUSER,
 } from "./apiConfig";
 
 import axios from "axios";
@@ -20,18 +20,16 @@ import axios from "axios";
  * @param {string} role Debe tomar los valores ADMIN y USER
  * @returns {json} {email:email, nombre:nombre, role:role} o bien la palabra "duplicado" en caso que el usuario ya exista
  */
-export function registro(email, password, nombre, role) {
-  axios
-    .post(URL_BASE + ENDPOINT_REGISTRO, {
-      email: email,
-      password: password,
-      nombre: nombre,
-      role: role,
-    })
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
+export async function registro(email, password, nombre, role) {
+  let dataUser = await axios.post(URL_BASE + ENDPOINT_REGISTRO, {
+    email: email,
+    password: password,
+    nombre: nombre,
+    role: role,
+  });
+
+  console.log(dataUser.data);
+  return dataUser.data;
 }
 
 /**
@@ -62,16 +60,13 @@ export async function login(email, password) {
  * No requere parámetros; sólo puede consultarse por usuarios logueados
  * @returns {json} de la forma {"results":[propspeli1, propspeli2....]}
  */
-export function obtenerPeliculasCatalogo() {
-  axios
-    .get(URL_BASE + ENDPOINT_PELICULA_CATALOGO, {
-      withCredentials: true,
-    })
-    .then((res) => {
-      console.log(res.data);
+export async function obtenerPeliculasCatalogo() {
+  let peliculas = await axios.get(URL_BASE + ENDPOINT_PELICULA_CATALOGO, {
+    withCredentials: true,
+  });
 
-      return { results: res.data };
-    });
+  console.log(peliculas.data);
+  return peliculas.data;
 }
 
 /**
@@ -84,7 +79,7 @@ export function obtenerPeliculasCatalogo() {
  * @param {string} vote_average
  * @param {string} overview
  *
- * @returns {json} si la película fue agregada exitosamente, devuelve un joson con los parámetros
+ * @returns {json} si la película fue agregada exitosamente, devuelve un json con los parámetros
  * {idPelicula,
  * poster_path,
  * title,
@@ -120,21 +115,19 @@ export async function agregarPeliculaCatalogo({ id, poster_path, title, release_
  * @param {number} idPelicula
  * @returns {json} con los parámetros {estado:borrada,idPelicula} en la clave
  */
-export function borrarPeliculaCatalogo(idPelicula) {
-  axios
-    .delete(
-      URL_BASE + ENDPOINT_PELICULA_CATALOGO,
-      {
-        idPelicula: idPelicula,
-      },
-      {
-        withCredentials: true,
-      }
-    )
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
+export async function borrarPeliculaCatalogo(idPelicula) {
+  let res = await axios.delete(
+    URL_BASE + ENDPOINT_PELICULA_CATALOGO,
+    {
+      idPelicula: idPelicula,
+    },
+    {
+      withCredentials: true,
+    }
+  );
+
+  console.log(res.data);
+  return res.data;
 }
 
 /**
@@ -143,50 +136,49 @@ export function borrarPeliculaCatalogo(idPelicula) {
  * la cookie JSESSION enviada desde el navegador cliente
  * @returns {json} de la forma {"results":[propspeli1, propspeli2....]}
  */
-export function obtenerPeliculasAlquiladas() {
-  axios
-    .get(URL_BASE + ENDPOINT_PELICULA_ALQUILADA, {
-      withCredentials: true,
-    })
-    .then((res) => {
-      console.log(res.data);
-      return { results: res.data };
-    });
+export async function obtenerPeliculasAlquiladas() {
+  let peliculas = await axios.get(URL_BASE + ENDPOINT_PELICULA_ALQUILADA, {
+    withCredentials: true,
+  });
+
+  if (peliculas.data == "") {
+    peliculas.data = [];
+  }
+  console.log(peliculas.data);
+  return peliculas.data;
 }
 
 /**
- * 
+ *
  * @param {number} idPelicula
- * @returns {json} si se guarda exitosamente, de la forma 
+ * @returns {json} si se guarda exitosamente, de la forma
  * {
  *   "estado": "guardada",
  *   "idPelicula": 1
  * }
- *  
+ *
  * de lo contrario
- * devuelve una cadena que dice "duplicada" 
+ * devuelve una cadena que dice "duplicada"
  */
-export function agregarPeliculaAlquilada(idPelicula) {
-  axios
-    .post(
-      URL_BASE + ENDPOINT_PELICULA_ALQUILADA,
-      {
-        idPelicula: idPelicula,
-      },
-      {
-        withCredentials: true,
-      }
-    )
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
+export async function agregarPeliculaAlquilada(idPelicula) {
+  let res = await axios.post(
+    URL_BASE + ENDPOINT_PELICULA_ALQUILADA,
+    {
+      idPelicula: idPelicula,
+    },
+    {
+      withCredentials: true,
+    }
+  );
+
+  console.log(res.data);
+  return res.data;
 }
 
 /**
  * Borra una película alquilada, por su idAlquilada, según el usuario logueado
  * @param {number} idAlquilada la cual es diferente al idPelicula
- * @returns {json} de la forma 
+ * @returns {json} de la forma
  * {
  *   "estado": "borrada",
  *   "idAlquilada": 1
@@ -215,49 +207,50 @@ export function borrarPeliculaAlquilada(idAlquilada) {
  * Devuelve una cadena con el role del usuario logueado.
  * @returns {string} puede ser ADMIN o USER
  */
-export function role() {
-  axios.get(URL_BASE + ENDPOINT_ROLE, { withCredentials: true }).then((res) => {
-    console.log(res.data);
-    return res.data;
+export async function role() {
+  let role = await axios.get(URL_BASE + ENDPOINT_ROLE, {
+    withCredentials: true,
   });
+  console.log(role.data);
+  return role.data;
 }
 
 /**
  * Cierra la sesión del usuario en el servidor
  * @return {string} logout
  */
-export function logout() {
-  axios
-    .get(URL_BASE + ENDPOINT_LOGOUT, { withCredentials: true })
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
+export async function logout() {
+  let logout = await axios.get(URL_BASE + ENDPOINT_LOGOUT, {
+    withCredentials: true,
+  });
+
+  console.log(logout.data);
+  return logout.data;
 }
 
 /**
  * Determina si un usuario está logueado
- * 
- * @returns {boolean} 
+ * @async
+ * @returns {Promise<boolean>} cadena
  */
-export function isLogged(){
-  axios
-    .get(URL_BASE + ENDPOINT_LOGGED, { withCredentials: true })
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });  
+export async function isLogged() {
+  let res = await axios.get(URL_BASE + ENDPOINT_LOGGED, {
+    withCredentials: true,
+  });
+
+  console.log(res.data);
+  return res.data;
 }
 
 /**
  * Devuelve los datos del usuario logueado
  * @returns {json} json con la siguiente estructura {"role":"USER","nombre":"nombreUser","email":"user"}
  */
- export function getDataUser(){
-  axios
-    .get(URL_BASE + ENDPOINT_DATAUSER, { withCredentials: true })
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });  
+export async function getDataUser() {
+  let dataUSer = await axios.get(URL_BASE + ENDPOINT_DATAUSER, {
+    withCredentials: true,
+  });
+
+  console.log(dataUSer.data);
+  return dataUSer.data;
 }

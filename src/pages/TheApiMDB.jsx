@@ -3,14 +3,14 @@ import { useSelector } from "react-redux";
 
 import CardMovie from '../components/cardmovie/CardMovie';
 
-const Catalogo = () => {
-  const movies = useSelector((state) => state.catalogo.value);
+const TheAPIMDB = () => {
+  const movies = useSelector((state) => state.movies.value);
 
   return (
     <>
       <div className="row">
         <div className="col-12">
-          <h2 className="text-center py-5">Catálogo de Peliculas</h2>
+          <h2 className="text-center py-5">The API Movie Database</h2>
         </div>
       </div>
       <div className='container'>
@@ -22,5 +22,5 @@ const Catalogo = () => {
   );
 }
 
-export default Catalogo;
+export default TheAPIMDB;
   
