@@ -6,7 +6,8 @@ import {
   ENDPOINT_PELICULA_CATALOGO,
   ENDPOINT_REGISTRO,
   ENDPOINT_ROLE,
-  ENDPOINT_LOGGED
+  ENDPOINT_LOGGED,
+  ENDPOINT_DATAUSER
 } from "./apiConfig";
 
 import axios from "axios";
