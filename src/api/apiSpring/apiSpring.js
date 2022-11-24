@@ -258,3 +258,16 @@ export function isLogged(){
       return res.data;
     });  
 }
+
+/**
+ * Devuelve los datos del usuario logueado
+ * @returns {json} json con la siguiente estructura {"role":"USER","nombre":"nombreUser","email":"user"}
+ */
+ export function getDataUser(){
+  axios
+    .get(URL_BASE + ENDPOINT_LOGGED, { withCredentials: true })
+    .then((res) => {
+      console.log(res.data);
+      return res.data;
+    });  
+}
