@@ -20,6 +20,7 @@ import {
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Login from "./pages/Login";
+import { setCatalogo } from "./redux/catalogoSlice";
 
 const auth = getAuth(firebaseApp);
 
@@ -29,26 +30,28 @@ const App3 = () => {
 
   const iniciar = async () => {
     let logueado = await isLogged();
-    
-    if(logueado){
+
+    if (logueado) {
       let usuario = await getDataUser();
-      dispatch(setDataUser(usuario))
+      dispatch(setDataUser(usuario));
     }
 
     return logueado;
-  }
+  };
 
   const obtenerPeliculas = async (dataUser) => {
     dataUser = await getDataUser();
+    
+    let peliculasCatalogo = [];
+    peliculasCatalogo = await obtenerPeliculasCatalogo();
+    dispatch(setCatalogo(peliculasCatalogo));
+
     if (dataUser) {
       let misPeliculas = [];
-      if (dataUser.role == "ADMIN") {
-        misPeliculas = await obtenerPeliculasCatalogo();
-        
-      } else {
+      if (dataUser.role == "USER") {
         misPeliculas = await obtenerPeliculasAlquiladas();
+        dispatch(setMisPeliculas(misPeliculas));
       }
-      dispatch(setMisPeliculas(misPeliculas));
     }
     sweetAlert.showSignIn(dataUser);
   };
@@ -59,7 +62,7 @@ const App3 = () => {
 
   useEffect(() => {
     iniciar();
-  },[]);
+  }, []);
 
   return (
     <>
