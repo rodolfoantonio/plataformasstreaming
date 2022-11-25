@@ -21,7 +21,7 @@ import sweetAlert from "../apiFirebase/sweetAlert";
  * @param {string} role Debe tomar los valores ADMIN y USER
  * @returns {json} {email:email, nombre:nombre, role:role} o bien la palabra "duplicado" en caso que el usuario ya exista
  */
-export async function registro(email, password, nombre, role) {
+export async function registrar(email, password, nombre, role) {
   let dataUser = await axios.post(URL_BASE + ENDPOINT_REGISTRO, {
     email: email,
     password: password,

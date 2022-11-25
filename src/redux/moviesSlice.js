@@ -18,7 +18,7 @@ export const moviesSlice = createSlice({
 });
 
 export const fetchBySearch = createAsyncThunk("fetch/movies", async (propiedades) =>{
-    let peliculasCatalogo = await obtenerPeliculasCatalogo();
+    let peliculasCatalogo = await obtenerPeliculasCatalogo(); 
     let peliculasTmdb = await apiTmdb.getListMovies(propiedades);
 
     for(let i = 0; i < peliculasCatalogo.length; i++){
@@ -32,7 +32,7 @@ export const fetchBySearch = createAsyncThunk("fetch/movies", async (propiedades
 
     //console.log(peliculasTmdb);
 
-    return peliculasTmdb;
+    return peliculasTmdb; 
     
 });
 

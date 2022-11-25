@@ -9,7 +9,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 import { getFirestore, collection, addDoc, doc, updateDoc, query, where  } from 'firebase/firestore';
 import  apiFirestore  from '../../api/apiFirebase/apiFirestore';
 
-import { login } from "../../api/apiSpring/apiSpring";
+import { getDataUser, login, registrar } from "../../api/apiSpring/apiSpring";
 
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
@@ -25,14 +25,18 @@ const LoginRegister = () => {
 
     try{
       if(registro){
+        // Registro de usuario en la plataforma
         const nombre = e.target.nombre.value;
-        let uid = await apiFirestore.createUserInFirestore(email, password, nombre);
-        if(uid != '')
-          dispatch( setDataUser({ email: email, uid: uid }) );
+
+        let dataUSer = await registrar(email, password, nombre, 'USER');
+        if(dataUSer){
+          let dataUSer = await login(email, password);
+          dispatch(setDataUser(dataUSer));
+        }
       } else{
+        // Inicio de sesión en la plataforma
         let dataUSer = await login(email, password);
         dispatch(setDataUser(dataUSer));
-        console.log(dataUSer);
       }
     }catch(error){
       console.log(error)
