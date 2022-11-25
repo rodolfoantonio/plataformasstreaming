@@ -33,7 +33,6 @@ export const addCatalogo = createAsyncThunk("fetch/addCatalogo", async (movie) =
   return response ? await obtenerPeliculasCatalogo() : '';
 });
 export const deleteOfCatalogo = createAsyncThunk("fetch/deleteOfCatalogo", async (movie) =>{
-  console.log(movie)
   let response = await borrarPeliculaCatalogo(movie);
   return response ? await obtenerPeliculasCatalogo() : '';
 });

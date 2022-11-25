@@ -3,7 +3,7 @@ import { setAlquilada, getAlquiladas, eliminarAlquilada } from "../api/apiTMDb/a
 import apiFirestore from '../api/apiFirebase/apiFirestore';
 
 // Importación de la API de SpringBoot
-import { agregarPeliculaCatalogo, login } from '../api/apiSpring/apiSpring';
+import { agregarPeliculaAlquilada, agregarPeliculaCatalogo, borrarPeliculaAlquilada, login, obtenerPeliculasAlquiladas, obtenerPeliculasCatalogo } from '../api/apiSpring/apiSpring';
 
 export const alquiladasSlice = createSlice({
   name: "alquiladas",
@@ -19,21 +19,27 @@ export const alquiladasSlice = createSlice({
     // Métodos de consulta para clientes
     builder.addCase(
       addMisPeliculas.fulfilled,(state, action)=>{
-        console.log(action.payload)
-        state.value = action.payload;
+        if(action.payload !== '')
+          state.value = action.payload;
       }
     );
     builder.addCase(
       deleteOfMisPeliculas.fulfilled,(state, action)=>{
-        console.log(action.payload)
-        state.value = action.payload;
+        if(action.payload !== '')
+          state.value = action.payload;
       }
     );
   }
 });
 
-export const addMisPeliculas = createAsyncThunk("fetch/addMisPeliculas", async (data) => apiFirestore.addMisPeliculas(data) );
-export const deleteOfMisPeliculas = createAsyncThunk("fetch/deleteOfMisPeliculas", async (data) => apiFirestore.deleteOfMisPeliculas(data) );
+export const addMisPeliculas = createAsyncThunk("fetch/addMisPeliculas", async (movie) => {
+  let response = await agregarPeliculaAlquilada(movie.id);
+  return response ? await obtenerPeliculasAlquiladas() : '';
+});
+export const deleteOfMisPeliculas = createAsyncThunk("fetch/deleteOfMisPeliculas", async (movie) => {
+  let response = await borrarPeliculaAlquilada(movie.id);
+  return response ? await obtenerPeliculasAlquiladas() : '';
+});
 
 export const { setMisPeliculas } = alquiladasSlice.actions;
 

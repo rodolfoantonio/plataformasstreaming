@@ -22,7 +22,7 @@ const Catalogo = () => {
             </p>
           </div>) : '' }
         <div className="row pt-3 d-flex justify-content-center">
-          {movies.map((movie) => ( <CardMovie movie={movie} tipo={ usuario.role === 'ADMIN' ? 'eliminar' : 'agregar'} /> ))}
+          {movies.map((movie) => ( <CardMovie movie={movie} tipo={ usuario.role === 'ADMIN' ? 'eliminar' : 'alquilar'} /> ))}
         </div>
       </div>
     </>

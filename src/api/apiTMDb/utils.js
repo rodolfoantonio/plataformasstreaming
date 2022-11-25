@@ -3,7 +3,7 @@ se muestran a continuación y devuleve un objeto JSON normalizado
 para ser guardado posteriormente en {results:[]} */
 export const movieAJson= (movie)=>{
     const movieJson = {
-        id: movie.idPelicula,
+        id: movie['idPelicula'] === undefined ? movie.id : movie.idPelicula,
         poster_path: movie.poster_path,
         title: movie.title,
         release_date: movie.release_date,

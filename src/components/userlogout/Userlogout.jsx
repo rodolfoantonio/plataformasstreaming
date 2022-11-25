@@ -35,9 +35,9 @@ const Userlogout = () => {
         aria-labelledby="dropdownMenuButton1"
       >
         <li>
-          <a className="dropdown-item" onClick={ () => logout() ? dispatch(setDataUser({})) : '' }>
+          <button className="dropdown-item" onClick={ () => logout() ? dispatch(setDataUser({})) : '' }>
             Cerrar Sesión
-          </a>
+          </button>
         </li>
       </ul>
     </div>

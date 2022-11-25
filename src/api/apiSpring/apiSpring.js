@@ -11,6 +11,7 @@ import {
 } from "./apiConfig";
 
 import axios from "axios";
+import sweetAlert from "../apiFirebase/sweetAlert";
 
 /**
  * Consulta el endpoint de registro. Agrega un usuario a la tabla Usuario de la base de datos
@@ -65,7 +66,7 @@ export async function obtenerPeliculasCatalogo() {
     withCredentials: true,
   });
 
-  console.log(peliculas.data);
+  //console.log(peliculas.data);
   return peliculas.data;
 }
 
@@ -118,7 +119,7 @@ export async function agregarPeliculaCatalogo({ id, poster_path, title, release_
 export async function borrarPeliculaCatalogo({ id }) {
   console.log(id)
   let res = await axios.delete(
-    URL_BASE + ENDPOINT_PELICULA_CATALOGO,
+    URL_BASE + ENDPOINT_PELICULA_CATALOGO + "?id=" +id,
     {
       idPelicula: id,
     },
@@ -145,7 +146,7 @@ export async function obtenerPeliculasAlquiladas() {
   if (peliculas.data == "") {
     peliculas.data = [];
   }
-  console.log(peliculas.data);
+  //console.log(peliculas.data);
   return peliculas.data;
 }
 
@@ -172,6 +173,8 @@ export async function agregarPeliculaAlquilada(idPelicula) {
     }
   );
 
+  //sweetAlert.showMovieAlquilada();
+
   console.log(res.data);
   return res.data;
 }
@@ -185,24 +188,24 @@ export async function agregarPeliculaAlquilada(idPelicula) {
  *   "idAlquilada": 1
  * }
  */
-/*
-export function borrarPeliculaAlquilada(idAlquilada) {
-  axios
+
+export async function borrarPeliculaAlquilada(idAlquilada) {
+  console.log(idAlquilada)
+  let res = await axios
     .delete(
-      URL_BASE + ENDPOINT_PELICULA_ALQUILADA,
+      URL_BASE + ENDPOINT_PELICULA_ALQUILADA + "/?=" + idAlquilada ,
       {
-        idPelicula: idPelicula,
+        idPelicula: idAlquilada,
       },
       {
         withCredentials: true,
       }
-    )
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
+    );
+
+    console.log(res.data);
+    return res.data;
 }
-*/
+
 
 /**
  * Devuelve una cadena con el role del usuario logueado.

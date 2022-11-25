@@ -1,10 +1,22 @@
-import React from 'react'
-import { useSelector } from "react-redux";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux";
 
 import CardMovie from '../components/cardmovie/CardMovie';
+import { fetchBySearch } from '../redux/moviesSlice';
 
 const MoviesApiTMDB = () => {
+  const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies.value);
+  const catalogo = useSelector((state) => state.catalogo.value);
+  
+  useEffect( () => {
+    dispatch(
+      fetchBySearch({
+        type: "discover",
+        terminoBusqueda: '',
+      })
+    );
+  }, [catalogo]);
 
   return (
     <>
