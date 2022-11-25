@@ -42,8 +42,8 @@ export const alquiladasSlice = createSlice({
 export const addMisPeliculas = createAsyncThunk("fetch/addMisPeliculas", async (data) => apiFirestore.addMisPeliculas(data) );
 export const deleteOfMisPeliculas = createAsyncThunk("fetch/deleteOfMisPeliculas", async (data) => apiFirestore.deleteOfMisPeliculas(data) );
 export const addToCatalogo = createAsyncThunk("fetch/addToCatalogo", async (movie) =>{
-  await login('admin', 'admin');
-  await agregarPeliculaCatalogo(movie);
+  let response = await agregarPeliculaCatalogo(movie);
+  console.log(response)
   console.log(movie)
 });
 

@@ -99,7 +99,7 @@ export async function agregarPeliculaCatalogo({ id, poster_path, title, release_
         release_date: release_date,
         original_language: original_language,
         vote_average: vote_average,
-        overview: overview,
+        overview: overview.slice(0,222),
       },
       {
         withCredentials: true,
