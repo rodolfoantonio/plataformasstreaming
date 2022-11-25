@@ -6,6 +6,7 @@ import Reproductor from '../components/reproductor/Reproductor';;
 
 const MisPeliculas = () => {
   const movies = useSelector((state) => state.alquiladas.value);
+  console.log(movies)
 
   return (
     <>

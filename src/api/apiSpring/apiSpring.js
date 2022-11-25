@@ -179,8 +179,6 @@ export async function agregarPeliculaAlquilada(idPelicula) {
     }
   );
 
-  //sweetAlert.showMovieAlquilada();
-
   console.log(res.data);
   return res.data;
 }

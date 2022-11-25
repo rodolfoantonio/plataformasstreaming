@@ -34,16 +34,26 @@ const sweetAlert = {
       timer: 1500,
     });
   },
-  showMovieAlquilada: (movie, error) => {
+  showMovieAlquilada: (movie, estado) => {
     Swal.fire({
       position: "top-end",
-      icon: error ? "error" : "success",
-      title: error ? "Ya la tiene alquilada" : "Pelicula alquilada ",
+      icon: estado ? "success" : "error" ,
+      title: estado ? "Película alquilada " : "Ya la tiene alquilada" ,
       html: `<b>Nombre:</b> ${movie.title}`,
       showConfirmButton: false,
       timer: 1500,
     });
   },
+  showDeleteMovieAlquilada: (movie, estado) => {
+    Swal.fire({
+      position: "top-end",
+      icon: estado ? "success" : "error" ,
+      title: estado ? "Película devuelta " : "No se pudo devolver" ,
+      html: `<b>Nombre:</b> ${movie.title}`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
 };
 
 export default sweetAlert;

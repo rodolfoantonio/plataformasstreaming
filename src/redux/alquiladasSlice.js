@@ -4,6 +4,7 @@ import apiFirestore from '../api/apiFirebase/apiFirestore';
 
 // Importación de la API de SpringBoot
 import { agregarPeliculaAlquilada, agregarPeliculaCatalogo, borrarPeliculaAlquilada, login, obtenerPeliculasAlquiladas, obtenerPeliculasCatalogo } from '../api/apiSpring/apiSpring';
+import sweetAlert from "../api/apiFirebase/sweetAlert";
 
 export const alquiladasSlice = createSlice({
   name: "alquiladas",
@@ -34,10 +35,14 @@ export const alquiladasSlice = createSlice({
 
 export const addMisPeliculas = createAsyncThunk("fetch/addMisPeliculas", async (movie) => {
   let response = await agregarPeliculaAlquilada(movie.id);
+  response !== 'duplicada' ? sweetAlert.showMovieAlquilada(movie, true) : sweetAlert.showMovieAlquilada(movie, false);
+
   return response ? await obtenerPeliculasAlquiladas() : '';
 });
 export const deleteOfMisPeliculas = createAsyncThunk("fetch/deleteOfMisPeliculas", async (movie) => {
   let response = await borrarPeliculaAlquilada(movie.id);
+  response && response.estado === 'borrada' ? sweetAlert.showDeleteMovieAlquilada(movie, true) : sweetAlert.showDeleteMovieAlquilada(movie, false);
+
   return response ? await obtenerPeliculasAlquiladas() : '';
 });
 
