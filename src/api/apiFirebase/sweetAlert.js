@@ -58,7 +58,7 @@ const sweetAlert = {
     Swal.fire({
       position: "top-end",
       icon: estado ? "success" : "error" ,
-      title: estado ? "Agregada a Catálogo " : "No se pudo agregar" ,
+      title: estado ? "Agregada al Catálogo " : "No se pudo agregar" ,
       html: `<b>Nombre:</b> ${movie.title}`,
       showConfirmButton: false,
       timer: 1500,
@@ -68,7 +68,7 @@ const sweetAlert = {
     Swal.fire({
       position: "top-end",
       icon: estado ? "success" : "error" ,
-      title: estado ? "Eliminada de Catálogo " : "No se pudo eliminar" ,
+      title: estado ? "Eliminada del Catálogo " : "No se pudo eliminar" ,
       html: `<b>Nombre:</b> ${movie.title}`,
       showConfirmButton: false,
       timer: 1500,
