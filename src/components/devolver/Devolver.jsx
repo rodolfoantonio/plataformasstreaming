@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteOfMisPeliculas } from "../../redux/alquiladasSlice";
+import { deleteOfCatalogo } from "../../redux/catalogoSlice";
 
 const Devolver = ({ movie }) => {
   const dispatch = useDispatch();
@@ -10,7 +11,9 @@ const Devolver = ({ movie }) => {
   return (
     <button 
       className="btn-danger position-absolute end-0 top-0 m-4"
-      onClick={() => dispatch( deleteOfMisPeliculas({ user, movie, misPeliculas }) )}
+      onClick={() => dispatch( 
+        user.role === 'ADMIN' ? deleteOfCatalogo(movie) : deleteOfMisPeliculas({ user, movie, misPeliculas })
+      )}
     >
       { user.role === 'ADMIN' ? 'Eliminar' : 'Devolver' }
     </button>

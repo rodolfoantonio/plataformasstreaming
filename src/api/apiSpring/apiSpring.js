@@ -115,11 +115,12 @@ export async function agregarPeliculaCatalogo({ id, poster_path, title, release_
  * @param {number} idPelicula
  * @returns {json} con los parámetros {estado:borrada,idPelicula} en la clave
  */
-export async function borrarPeliculaCatalogo(idPelicula) {
+export async function borrarPeliculaCatalogo({ id }) {
+  console.log(id)
   let res = await axios.delete(
     URL_BASE + ENDPOINT_PELICULA_CATALOGO,
     {
-      idPelicula: idPelicula,
+      idPelicula: id,
     },
     {
       withCredentials: true,

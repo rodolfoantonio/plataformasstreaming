@@ -2,10 +2,13 @@ import React from "react";
 import { firebaseApp } from '../../api/apiFirebase/apiConfig';
 import { getAuth, signOut } from "firebase/auth";
 import "./Userlogout.css";
-
-const auth = getAuth(firebaseApp);
+import { logout } from "../../api/apiSpring/apiSpring";
+import { useDispatch } from "react-redux";
+import { setDataUser } from "../../redux/userSlice";
 
 const Userlogout = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="dropdown dropbottom userIcon">
       <button
@@ -16,7 +19,7 @@ const Userlogout = () => {
         aria-expanded="false"
       >
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns="http://www.w3.org/2000/svg" 
           width="30"
           height="30"
           fill="white"
@@ -32,7 +35,7 @@ const Userlogout = () => {
         aria-labelledby="dropdownMenuButton1"
       >
         <li>
-          <a className="dropdown-item" onClick={ () => signOut(auth) }>
+          <a className="dropdown-item" onClick={ () => logout() ? dispatch(setDataUser({})) : '' }>
             Cerrar Sesión
           </a>
         </li>

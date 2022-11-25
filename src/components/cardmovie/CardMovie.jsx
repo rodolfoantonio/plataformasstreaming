@@ -23,20 +23,20 @@ const CardMovie = ({ movie, tipo }) => {
   let tipoBoton;
 
   if(tipo === "alquilar" || tipo === "agregar")
-    tipoBoton = <Alquilar key={movie.id+"_alquilar"} movie={movieAJson(movie)}/>
+    tipoBoton = <Alquilar key={movie.idPelicula+"_alquilar"} movie={movieAJson(movie)}/>
 
   if(tipo === "devolver" || tipo === "eliminar")
-    tipoBoton = <Devolver key={movie.id+"_devolver"} movie={movieAJson(movie)}/>
+    tipoBoton = <Devolver key={movie.idPelicula+"_devolver"} movie={movieAJson(movie)}/>
 
   return (
     <div 
-      key={movie.id} 
+      key={movie.idPelicula} 
       className="col-10 col-xs-9 col-sm-9 col-md-6 col-lg-4 d-flex justify-content-center mb-5 position-relative seccion-cardmovie"
     >
 
       <div className="border">
         <div className="">
-          {tipo == 'devolver' ? <img src={ iconReproductor } className='icon-play' onClick={ () => selectMovie(movie.id)} /> : ''}
+          {tipo == 'devolver' ? <img src={ iconReproductor } className='icon-play' onClick={ () => selectMovie(movie.idPelicula)} /> : ''}
           <img
             src={`${apiConfig.URL_IMAGE + movie.poster_path}`}
             alt={movie.title}

@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addMisPeliculas, addToCatalogo } from "../../redux/alquiladasSlice";
+import { addMisPeliculas } from "../../redux/alquiladasSlice";
+import { addCatalogo } from "../../redux/catalogoSlice";
+
 
 const Alquilar = ({ movie }) => {
   const dispatch = useDispatch();
@@ -11,7 +13,7 @@ const Alquilar = ({ movie }) => {
     <button 
       className="btn-success position-absolute end-0 top-0 m-4"
       onClick={() => dispatch( 
-        user.role === 'ADMIN' ? addToCatalogo(movie) : addMisPeliculas({ user, movie, misPeliculas }) 
+        user.role === 'ADMIN' ? addCatalogo(movie) : addMisPeliculas({ user, movie, misPeliculas }) 
       )}
     >
       { user.role === 'ADMIN' ? 'Agregar al Catálogo' : 'Alquilar' }

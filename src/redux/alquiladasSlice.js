@@ -29,23 +29,11 @@ export const alquiladasSlice = createSlice({
         state.value = action.payload;
       }
     );
-    // Métodos de consulta para ADMIN
-    builder.addCase(
-      addToCatalogo.fulfilled,(state, action)=>{
-        console.log(action.payload)
-        //state.value = action.payload;
-      }
-    );
   }
 });
 
 export const addMisPeliculas = createAsyncThunk("fetch/addMisPeliculas", async (data) => apiFirestore.addMisPeliculas(data) );
 export const deleteOfMisPeliculas = createAsyncThunk("fetch/deleteOfMisPeliculas", async (data) => apiFirestore.deleteOfMisPeliculas(data) );
-export const addToCatalogo = createAsyncThunk("fetch/addToCatalogo", async (movie) =>{
-  let response = await agregarPeliculaCatalogo(movie);
-  console.log(response)
-  console.log(movie)
-});
 
 export const { setMisPeliculas } = alquiladasSlice.actions;
 
