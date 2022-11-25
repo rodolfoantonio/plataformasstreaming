@@ -53,6 +53,15 @@ export async function login(email, password) {
     );
 
     console.log(dataUser.data);
+    
+    if(dataUser.data=="usuario no existe"){
+      sweetAlert.showErrores(dataUser.data);
+    }
+    if(dataUser.data=="password incorrecto"){
+      sweetAlert.showErrores(dataUser.data);
+    }
+    
+
     return dataUser.data;
 }
 
@@ -116,13 +125,10 @@ export async function agregarPeliculaCatalogo({ id, poster_path, title, release_
  * @param {number} idPelicula
  * @returns {json} con los parámetros {estado:borrada,idPelicula} en la clave
  */
-export async function borrarPeliculaCatalogo({ id }) {
-  console.log(id)
+export async function borrarPeliculaCatalogo( {id} ) {
+  
   let res = await axios.delete(
-    URL_BASE + ENDPOINT_PELICULA_CATALOGO + "?id=" +id,
-    {
-      idPelicula: id,
-    },
+    URL_BASE + ENDPOINT_PELICULA_CATALOGO + "?idPelicula=" +id,
     {
       withCredentials: true,
     }
@@ -189,14 +195,11 @@ export async function agregarPeliculaAlquilada(idPelicula) {
  * }
  */
 
-export async function borrarPeliculaAlquilada(idAlquilada) {
-  console.log(idAlquilada)
+export async function borrarPeliculaAlquilada(idPelicula) {
+  
   let res = await axios
     .delete(
-      URL_BASE + ENDPOINT_PELICULA_ALQUILADA + "/?=" + idAlquilada ,
-      {
-        idPelicula: idAlquilada,
-      },
+      URL_BASE + ENDPOINT_PELICULA_ALQUILADA + "/?idPelicula=" + idPelicula,
       {
         withCredentials: true,
       }

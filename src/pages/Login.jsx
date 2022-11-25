@@ -2,7 +2,6 @@ import React from 'react';
 import LoginRegister from '../components/Login-register/LoginRegister';
 
 const Login = () => {
-
   return (
     <div className='seccion-formulario'>
       <div className="row sin-m">

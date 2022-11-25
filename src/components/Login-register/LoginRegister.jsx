@@ -33,8 +33,6 @@ const LoginRegister = () => {
         let dataUSer = await login(email, password);
         dispatch(setDataUser(dataUSer));
         console.log(dataUSer);
-        //window.location.reload(false);
-        /* await login(email, password); */ /* apiFirestore.signInWithEmailAndPass(email, password); */
       }
     }catch(error){
       console.log(error)
