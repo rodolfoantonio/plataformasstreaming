@@ -75,7 +75,11 @@ export async function obtenerPeliculasCatalogo() {
     withCredentials: true,
   });
 
-  //console.log(peliculas.data);
+  
+  if(peliculas.data==""){
+    return [];
+  }
+  console.log("Peliculas catalogo "+peliculas.data);
   return peliculas.data;
 }
 
